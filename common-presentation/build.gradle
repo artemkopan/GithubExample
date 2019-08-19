@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+android {
+    compileSdkVersion build_versions.compile_sdk
+
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation project(':common-api')
+
+    implementation "ru.terrakok.cicerone:cicerone:$versions.cicerone"
+
+    api "androidx.appcompat:appcompat:$versions.androidx_appcompat"
+
+    api "androidx.navigation:navigation-runtime:$versions.navigation"
+    api "androidx.navigation:navigation-runtime-ktx:$versions.navigation"
+    api "androidx.navigation:navigation-fragment:$versions.navigation"
+    api "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
+    api "androidx.navigation:navigation-ui:$versions.navigation"
+
+    api "androidx.constraintlayout:constraintlayout:$versions.constraintlayout"
+    api "androidx.recyclerview:recyclerview:$versions.androidx_recycler"
+    api "com.google.android.material:material:$versions.material"
+
+
+    api "org.koin:koin-android:$versions.koin"
+    api "org.koin:koin-androidx-viewmodel:$versions.koin"
+}

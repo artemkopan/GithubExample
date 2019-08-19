@@ -1,0 +1,2 @@
+include ':app', ':repo-api', ':repo-model', ':auth-model', ':auth-api', ':auth-presentation', ':repo-presentation', ':common-presentation', ':common-model', ':common-api'
+rootProject.name='GithubExample'
